@@ -206,15 +206,19 @@ static AP_Baro_BMP085 barometer;
 static AP_Baro_PX4 barometer;
 #elif CONFIG_BARO == HAL_BARO_VRBRAIN
 static AP_Baro_VRBRAIN barometer;
-#elif CONFIG_BARO == HAL_BARO_HIL
+#else
+static AP_Baro_HIL barometer;
+#endif
+/*#elif CONFIG_BARO == HAL_BARO_HIL
 static AP_Baro_HIL barometer;
 #elif CONFIG_BARO == HAL_BARO_MS5611
 static AP_Baro_MS5611 barometer(&AP_Baro_MS5611::i2c);
 #elif CONFIG_BARO == HAL_BARO_MS5611_SPI
 static AP_Baro_MS5611 barometer(&AP_Baro_MS5611::spi);
 #else
- #error Unrecognized CONFIG_BARO setting
+#error Unrecognized CONFIG_BARO setting
 #endif
+*/
 
 #if CONFIG_COMPASS == HAL_COMPASS_PX4
 static AP_Compass_PX4 compass;
