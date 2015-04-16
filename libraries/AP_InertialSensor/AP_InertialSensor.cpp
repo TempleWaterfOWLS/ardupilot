@@ -329,6 +329,7 @@ AP_InertialSensor::_detect_backends(void)
     _add_backend(AP_InertialSensor_HIL::detect);
 #elif HAL_INS_DEFAULT == HAL_INS_MPU6000
     _add_backend(AP_InertialSensor_MPU6000::detect);
+    _add_backend(AP_InertialSensor_HIL::detect);
 #elif HAL_INS_DEFAULT == HAL_INS_PX4 || HAL_INS_DEFAULT == HAL_INS_VRBRAIN
     _add_backend(AP_InertialSensor_PX4::detect);
 #elif HAL_INS_DEFAULT == HAL_INS_OILPAN
@@ -344,7 +345,8 @@ AP_InertialSensor::_detect_backends(void)
 //#if 0 // disabled due to broken hardware on some PXF capes
 #if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_PXF
     // the PXF also has a MPU6000
-    _add_backend(AP_InertialSensor_MPU6000::detect);
+   // _add_backend(AP_InertialSensor_MPU6000::detect);
+  _add_backend(AP_InertialSensor_HIL::detect);
 #endif
 //#endif
 

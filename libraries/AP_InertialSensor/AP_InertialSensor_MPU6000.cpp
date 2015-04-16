@@ -11,10 +11,10 @@ extern const AP_HAL::HAL& hal;
 #if CONFIG_HAL_BOARD == HAL_BOARD_APM2
 #define MPU6000_DRDY_PIN 70
 #elif CONFIG_HAL_BOARD == HAL_BOARD_LINUX
-#if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_ERLE || CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_PXF
-#include "../AP_HAL_Linux/GPIO.h"
-#define MPU6000_DRDY_PIN BBB_P8_14
-#endif
+//#if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_ERLE || CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_PXF
+//#include "../AP_HAL_Linux/GPIO.h"
+//#define MPU6000_DRDY_PIN BBB_P8_14
+//#endif
 #endif
 
 // MPU 6000 registers
@@ -218,8 +218,9 @@ AP_InertialSensor_Backend *AP_InertialSensor_MPU6000::detect(AP_InertialSensor &
  */
 bool AP_InertialSensor_MPU6000::_init_sensor(void)
 {
+   return 1;
     _spi = hal.spi->device(AP_HAL::SPIDevice_MPU6000);
-    _spi_sem = _spi->get_semaphore();
+   // _spi_sem = _spi->get_semaphore();
 
 #ifdef MPU6000_DRDY_PIN
     _drdy_pin = hal.gpio->channel(MPU6000_DRDY_PIN);
