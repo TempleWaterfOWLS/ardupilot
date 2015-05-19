@@ -51,7 +51,7 @@ static Empty::EmptyGPIO gpioDriver;
   use the PRU based RCInput driver on ERLE and PXF
  */
 #if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_PXF || CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_ERLE
-//static LinuxRCInput_PRU rcinDriver;
+static LinuxRCInput_PRU rcinDriver;
 static LinuxRCInput rcinDriver;
 #elif CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_NAVIO
 static LinuxRCInput_Navio rcinDriver;
@@ -65,7 +65,7 @@ static LinuxRCInput rcinDriver;
   use the PRU based RCOutput driver on ERLE and PXF
  */
 #if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_PXF || CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_LINUX_ERLE
-//static LinuxRCOutput_PRU rcoutDriver;
+static LinuxRCOutput_PRU rcoutDriver;
 static  Empty::EmptyRCOutput rcoutDriver;
 /*
   use the PCA9685 based RCOutput driver on Navio
