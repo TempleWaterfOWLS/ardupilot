@@ -33,7 +33,7 @@ const AP_Param::Info var_info[] PROGMEM = {
     // @Description: This selects the mode to start in on boot. This is useful for when you want to start in AUTO mode on boot without a receiver. Usuallly used in combination with when AUTO_TRIGGER_PIN or AUTO_KICKSTART.
     // @Values: 0:MANUAL,2:LEARNING,3:STEERING,4:HOLD,10:AUTO,11:RTL,15:GUIDED
     // @User: Advanced
-	GSCALAR(initial_mode,        "INITIAL_MODE",     MANUAL),
+	GSCALAR(initial_mode,        "INITIAL_MODE",     AUTO),
 
     // @Param: RSSI_PIN
     // @DisplayName: Receiver RSSI sensing pin
